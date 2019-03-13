@@ -1,0 +1,724 @@
+/*
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "NoirPro";
+	color: white;
+	min-width: 300px;
+}
+
+@font-face {
+font-family: "NoirPro";
+src: url("Fonts/NoirPro-Light.tff");
+src: url("Fonts/noirpro-light-webfont.woff") format("woff");
+}
+
+@font-face {
+font-family: "NoirPro-Bold";
+src: url("Fonts/NoirPro-Bold.tff");
+src: url("Fonts/noirpro-bold-webfont.woff") format("woff");
+}
+
+@font-face {
+font-family: "NoirPro-Regular";
+src: url("Fonts/NoirPro-Regular.tff");
+src: url("Fonts/noirpro-regular-webfont.woff") format("woff");
+}
+
+#banner {
+	/*background: #312C32;*/   /*culoare gri pentru banner*/
+	width: 100%;			/*includem meta in html si folosim marimile astea ca landing page-ul sa ocupe tot ecranul*/
+	height: 100vh;
+	background-image: url(../Images/Background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+
+
+.scroll{
+	padding-right: 60px;
+	font-size: 18px;
+}
+
+nav a{
+	color: white;
+	font-family: "NoirPro";
+	text-decoration: none;
+	margin-left: 100px;
+}
+
+.titles {
+	margin: auto;
+	width: fit-content;
+	padding: 25vh 0 7vh 0;
+	font-family: "NoirPro-Bold";
+	font-size: 65px;
+	margin-bottom: 90px;
+	transition: all 0.2s;
+}
+
+.title1 {
+	position: relative;
+	margin-left: 120px;
+	animation: text1 1s forwards 0.5s;
+	opacity: 0;
+}
+
+.title2 {
+	opacity: 0;
+	position: relative;
+	margin-top: -20px;
+	margin-right: 120px;
+	animation: text2 1s forwards 0.5s;
+}
+
+
+@media screen and (min-width: 832px) {
+	.title1::before {
+		content: "";
+		height: 1.5px;
+		width: 0; 			/* final: calc((100vw - 100%) / 2 + 48px)*/
+		background: white;
+		position: absolute;
+		display: block;
+		top: 55%;
+		right: calc(100% + 12px);
+		opacity: 0.5;
+		animation: width1 1s forwards 1.5s;
+	}
+
+	.title2::after {
+		content: "";
+		height: 1.5px;
+		width: 0; /* final: calc((100vw - 100%) / 2 + 90px) */
+		background: white;
+		position: absolute;
+		display: block;
+		top: 58%;
+		left: calc(100% - 30px);
+		opacity: 0.5;
+		animation: width2 1s forwards 1.5s;  /* forwards ca sa mentina starea finala din keyframes dupa ce se termina animatia*/
+	}
+}
+
+
+
+
+h1 {
+	padding: 0;
+	margin: 0;
+}
+
+.button-wrapper {
+	text-align: center;
+	margin-top: 0px;
+}
+
+.action-button {
+	border: none;
+	outline: none;
+	border-radius: 2rem;
+	background: #daad86;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	height: 40px;
+    line-height: 38px;
+    width: 180px;
+    display: inline-block;
+    margin: auto;
+    padding: 0;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: "NoirPro-Regular";
+    box-shadow: 3px 5px 12px #232323;
+    transition: 0.2s ease-in-out;
+}
+
+.action-button:hover {
+	opacity: 0.75;	
+}
+
+/*------------------------About Me----------------------------*/
+
+.description {
+	color: black;
+	line-height: 30px;
+	font-size: 18px;
+}
+
+.about-me-section {
+	display: flex;     /* pune elementele in paralele pe acelasi rand?*/
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 80%;
+	margin-top: 60px;
+/* 	margin-bottom: 100px;*/
+}
+
+.about-me {
+	display: block;
+	margin-left: 100px;
+}
+
+h2 {
+	color: black;
+	letter-spacing: 23px;
+	margin-bottom: 30px;
+}
+
+.myImg {
+	margin-left: 300px;
+	height: 200px;
+}
+
+/*-------------------------Title Animation----------------------*/
+
+@keyframes width1 {
+	0% {
+		width: 0;
+	}
+
+	100% {
+		width: calc((100vw - 100%) / 2 + 48px);
+	}
+}
+
+@keyframes width2 {
+	0% {
+		width: 0;
+	}
+
+	100% {
+		width: calc((100vw - 100%) / 2 + 90px);
+	}
+}
+
+@keyframes text1 {
+	0% {
+		opacity: 0;
+		margin: 0px;
+		top: 40px;
+	}
+
+	100% {
+		opacity: 1;
+		margin-left: 120px;
+		top: 0px;
+	}
+}
+
+@keyframes text2 {
+	0% {
+		opacity: 0;
+		margin-right: 0px;
+		bottom: 40px;
+
+	}
+
+	100% {
+		opacity: 1;
+		margin-right: 120px;
+		bottom: 0px;
+	}
+}
+
+/* ----------------Skills Style------------------*/
+
+.titleSkills {
+	color: black;
+	letter-spacing: 20px;
+	margin-top: 60px; 
+	text-align: center;
+}
+
+#skillCards {
+	padding: 1rem 0 5rem 0;
+	position: relative;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.domain {
+	display: inline-block;
+	background: #312C32;
+	width: 200px;
+	height: 320px;
+	margin: 2.5rem 5% 4% 5%;
+	text-align: center;
+	font-size: 11px;
+	position: relative;
+	border-radius: 25px;
+	box-shadow: 3px 3px 15px #3B3B3B;
+	padding-top: 15px;
+}
+
+.skillCont {
+	color: #DAAD86;
+	font-family: "NoirPro";
+	padding-top: 1.5rem;
+	padding-bottom: 1rem;
+	letter-spacing: 1px;
+}
+
+.skillCont::after {
+	content: "";
+	display: block;
+	margin: auto;
+	width: 27px;
+	height: 2px;
+	background: #DAAD86;
+	margin-top: 12px;
+}
+
+p {
+	font-size: 13px;
+	line-height: 22px;
+}
+
+.action-button-2 {
+	border: none;
+	outline: none;
+	border-radius: 2rem;
+	background: #daad86;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	height: 40px;
+    line-height: 40px;
+    width: 180px;
+    display: inline-block;
+    margin: auto;
+    padding: 0;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: "NoirPro-Regular";
+    box-shadow: 2px 3px 10px #8C888D;
+    transition: 0.2s ease-in-out;
+}
+
+.action-button-2:hover {
+	opacity: 0.75;	
+}
+
+/*.action-button-2::after {
+	z-index: -1;
+	content: "";
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	height: 40px;
+	width: 180px;
+	border: 2.5px solid #312C32;
+	border-radius: 1rem;
+	box-sizing: border-box;
+}*/
+
+/*------------------------Social Icons----------------------*/
+
+.social-container {
+	list-style: none;
+	position: absolute;
+	top: 500px;
+	left: 10px;
+	margin-left: 10px;
+	padding: 0;
+}
+
+.icon-img {
+	width: 40px;
+	margin-top: 15px;
+	cursor: pointer;
+}
+
+#portfolio-block {
+
+	background: #312C32;
+	width: 100%;
+	height: 200vh;
+}
+
+.title-work {
+	color: white;
+	padding-top: 50px;
+}
+
+/*---------------------My Work----------------------*/
+
+.cards-portfolio {
+	display: grid;
+	grid-template-columns: repeat(2, 500px);
+	grid-template-rows: repeat(3, 350px);
+	grid-gap: 30px 30px;
+	justify-content: center;
+	align-items: center;
+	padding-top: 50px;
+
+}
+
+.one-card {
+	border-radius: 5px;
+	background: #443E46;
+	text-align: center;
+	width: 500px;
+	height: 350px;
+	box-shadow: 7px 7px 15px #262327;
+}
+.shot {
+	position: relative;
+	display: block;
+	text-align: center;
+/*	height: 55%;*/
+	padding: 0;
+	background: red;
+}
+
+.img-portfolio {
+	display: inline-block;
+	width: 500px;
+	height: 350px;
+}
+
+/*-----------------Nav Bar + JavaScript for Sticky----------------------*/
+
+nav{
+	position: fixed;
+	top: 0;
+	padding-top: 2.5rem;
+	transition: 0.2s ease-in-out;
+}
+
+.fixed-nav nav{
+	z-index: 1;
+	background: #312C32;
+	height: 40px;
+	width: 100%;
+	padding-top: 1rem;
+	transition: 0.3s ease-in-out;
+}
+
+
+/*-------------------------Get In Touch Section------------------------*/
+
+
+.form-box {
+	color: black;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	padding: 70px;
+	font-family: "NoirPro-Regular";
+	width: fit-content;
+	height: fit-content;
+}
+
+.form-box h2 {
+	color: black;
+	text-align: center;
+	font-size: 25px;
+	letter-spacing: 20px;
+	margin-top: 0;
+	margin-bottom: 100px;
+}
+
+.form-box label {
+	display: block;
+	color: #312C32;
+	font-size: 17px;
+	color: #312C32;
+	opacity: 0.5;
+	font-family: "NoirPro-Bold";
+	margin-top: 50px;
+}
+
+.form-box input {
+	background: transparent;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	line-height: 30px;
+	outline: none;
+	padding: 10px 10px 5px 10px;
+	width: 500px;
+	color: black;
+	opacity: 0.8;
+	font-size: 18px;
+	border-bottom: 2.5px solid #CCC;
+	transition: all 0.2s ease-in-out;
+}
+
+.form-box input::placeholder {
+	color: black;
+	opacity: 0.2;
+}
+
+input:focus{
+	border-color: black;
+	opacity: 0.5;
+	border-bottom: 2.5px solid black;
+}
+
+.form-group {
+	margin: auto;
+	/*display: inline-block;*/
+	width: fit-content;
+}
+
+.form-box #message {
+	border: 2px solid #CCC;
+	height: 150px;
+	width: 100%;
+	background: transparent;
+	margin-top: 10px;
+	padding: 10px;
+	outline: none;
+	color: black;
+}
+
+#send_button {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 23px;
+	color: white;
+	background: #98dafc;
+	border: 2px solid #98dafc;
+	padding: 6px 30px 6px 30px;
+	font-size: 15px;
+	border-radius: 2rem;
+	font-family: "NoirPro-Regular";
+	transition: all 0.2s ease-in-out;
+	margin-bottom: 3px;
+	outline: none;
+}
+
+#send_button:hover {
+	background: #5AB9EA;
+	border: 5px solid #5AB9EA;
+	margin-bottom: 0;
+	margin-top: 20px;
+/*	opacity: 0.75;*/
+}
+
+span {
+	color: white;
+	font-size: 15px;
+	font-style: italic;
+	text-align: center;
+}
+
+.icons-bottom {
+	background: #312C32;
+	width: 100%;
+	height: 200px;
+}
+
+.social-container-bottom {
+	list-style: none;
+	display: flex;
+	padding-left: 0;
+	padding-top: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+.final-call {
+	letter-spacing: 5px;
+	color: white;
+	text-align: center;
+	padding-top: 30px;
+}
+
+.icon-img-bottom {
+	width: 50px;
+}
+
+
+/*--------------------Scroll Button Animation--------------*/
+
+body{
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+.middle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin-top: 430px;
+}
+.mouse{
+  width: 25px;
+  height: 45px;
+  border: 1.5px solid white;
+  border-radius: 60px;
+  opacity: 0.7;
+}
+.mouse::before{
+  content: "";
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 30px;
+  background: white;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: mouse 2s infinite;
+}
+
+@keyframes mouse {
+  from{
+    opacity: 0.7;
+    top: 10px;
+  }
+  to{
+    opacity: 0;
+    top: 30px;
+  }
+}
+
+/*------------------MOBILE RESPONSIVE---------------*/
+
+@media screen and (max-width: 850px) {
+	#main {
+		display: none;
+	}
+
+	.titles {
+		font-size: 35px;
+	}
+/*PROBLEMA CU MARGIN*/
+	.title1 {
+		margin-left: 60px;
+	}
+
+	.title2 {
+		margin-top: 0px;
+		margin-right: 60px;
+	}
+
+	.social-container {
+		display: none;
+	}
+
+	.mouse {
+		display: none;
+	}
+	.about-me-section {
+		width: 100%;
+
+	}
+
+	.myImg {
+		margin: auto;
+	}
+
+	.about-me {
+		margin: auto;
+		text-align: center;
+	}
+	.name {
+		font-size: 15px;
+		letter-spacing: 10px;
+		margin-top: 50px;
+	}
+	.description {
+		padding: 10px 25px;
+	}
+
+	.cards-portfolio {
+		grid-template-columns: repeat(1, 300px);
+		grid-template-rows: repeat(2, 210px);
+	}
+
+	.one-card {
+		width: 300px;
+		height: 210px;
+	}
+
+	.img-portfolio {
+		width: 300px;
+		height: 210px;
+	}
+
+	#portfolio-block {
+		height: auto;
+	}
+
+	.title-work {
+		text-align: center;
+	}
+
+	.titleSkills {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	.wrapper {
+		margin-bottom: 50px;
+	}
+	.skillCards{
+		padding-bottom: 0px;
+	}
+
+	#menu-toggler {
+		position: fixed;
+		top: 30px;
+		right: 30px;
+		font-size: 30px;
+		cursor: pointer;
+	}
+
+	.menu-mobile-items {
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background: black;
+		/*opacity: 0.95;*/
+		z-index: 100;
+		display: flex;
+		flex-wrap:wrap;
+		align-items: center;
+		justify-content: center;
+		visibility: hidden;
+	}
+
+	.nav-object  {
+		text-decoration: none;
+		color: white;
+		display: block;
+		text-align: center;
+		font-size: 20px;
+		padding: 10px 25px;
+
+	}
+
+}
+
+@media screen and (min-width: 850px) {
+	.menu-mobile {
+		display: none;
+	}
+}
+
+	.menu {
+		visibility: visible;
+	}
